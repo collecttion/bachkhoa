@@ -1,3 +1,7 @@
 h1 bai viet
-each posts in post
-    li=posts.name
+ul
+    each posts in post
+        li=posts.name
+            a(href="post" + post.id) view
+button
+    a(href="/create") create
