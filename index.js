@@ -2,15 +2,19 @@ const express = require("express");
 const app = express();
 const pug = require("pug");
 const port = 3000;
-var mongoose = require('mongoose');
-var Post = require('./models/post.models');
-var bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const Post = require('./models/post.models');
+const bodyParser = require('body-parser');
+const multer = require("multer");
+
+var upload = multer({ dest: 'puclic/uploads'})
 
 
 mongoose.connect('mongodb://localhost:27017/bachkhoa', {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 app.set('view engine', 'pug');
 app.set('views', './views');
+
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -26,10 +30,15 @@ app.get('/create', function(req, res){
     res.render('create/index')
 })
 
-app.post('/create', async function(req, res){
+app.post('/create', upload.single('imgeFile'), async function(req, res){
     var posts = new Post(req.body);
-    console.log(posts)
+    
+    req.body.imgeFile = req.file.path;
+
+    console.log(req.body)
+
     var post = await Post.find();
+
     posts.save(function(error){
         if(error)
             return res.json({ posts : posts })
@@ -40,12 +49,20 @@ app.post('/create', async function(req, res){
 
 app.get('/post:id', async function(req, res){
     var id = req.params.id;
-    console.log(id)
-    var post = await Post.find();
-    res.render('post/view', {
-        post:post
-    })
+    var post = await Post.findById(id, function(error, idpost){
+        if (error){
+        console.log('id wes')
+        }else{
+        res.render('post/view', {
+            title:idpost.name,
+            conten:idpost.conten
+        })
+    }
+    });
+     
 })
+
+
 
 app.listen(port, function(){
     console.log("hey,babe tuan" + port)

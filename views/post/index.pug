@@ -2,6 +2,7 @@ h1 bai viet
 ul
     each posts in post
         li=posts.name
-            a(href="post" + post.id) view
+            a(href="/post" + posts.id) view
+    img(src=imgFile, class="size-img")
 button
     a(href="/create") create
