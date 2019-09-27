@@ -1,8 +1,42 @@
-h1 bai viet
-ul
-    each posts in post
-        li=posts.name
-            a(href="/post" + posts.id) view
-    img(src=imgFile, class="size-img")
-button
-    a(href="/create") create
+extends ../layout/postComon
+
+block conten
+		div.container-fluid.padding
+			br
+			p#p
+				| THE ULTIMATE THEME TO SELL YOUR BOOK. SINGLE, MULTIPLE, DIGITAL
+				br
+				br
+			div.row.padding
+				div.col-md-12.col-lg-6
+					div(class="table2-mobi view")
+						div 
+							div(class="baner-br baner-view") 
+								each posts in post
+										div(class="cart1-img cart1-view")
+											img(src=posts.imgeFile, class="size-img")
+											hr
+											p(style="font-weight: bold;")=posts.name
+												br
+												a(href="/post" + posts.id) xem
+												
+				div.col-lg-6
+					a(href='', style='color:#faab9f; ') Adventure
+					h5#text-table3(style="font-size:90%;")
+						| Culture are creatures of the cosmos Apollonius of Perga star stuff harvesting star light worldlets bits of moving fluff the only home we&rsquo;ve ever known shores of the cosmic ocean? White dwarf Hypatia rich in heavy atoms hydrogen atoms Jean-Fran&Atilde;&fnof;&Acirc;&sect;ois Champollion astonishment permanence of the stars,			
+					nav(aria-label='Page navigation example')
+					ul(class="pagination")
+						li(class="page-item")
+							a(class="page-link" href="/product" aria-label="Previous")
+								span(aria-hidden="true") &laquo;
+						li(class="page-item")
+							a(class="page-link" href="?page=1") 1
+						li(class="page-item")
+							a(class="page-link" href="?page=2") 2
+						li(class="page-item")
+							a(class="page-link" href="?page=3") 3
+						li(class="page-item")
+							a(class="page-link" href="?page=4") 4
+						li(class="page-item")
+							a(class="page-link" href="?page=5" aria-label="Next")
+								span(aria-hidden="true") &raquo;
