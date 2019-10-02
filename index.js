@@ -1,17 +1,17 @@
 const express = require("express");
 const app = express();
 const pug = require("pug");
-var port = process.env.PORT || 3000;
+var port = 3000;
 const mongoose = require('mongoose');
 const Post = require('./models/post.models');
 const bodyParser = require('body-parser');
 const multer = require("multer");
-
+require('dotenv').config()
 
 
 var upload = multer({ dest: 'puclic/uploads/' });
 
-mongoose.connect('mongodb://localhost:27017/bachkhoa',{useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect(process.env.MONGO_URL,{useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 app.set('view engine', 'pug');
 app.set('views', './views');
