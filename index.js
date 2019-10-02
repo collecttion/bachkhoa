@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const pug = require("pug");
-var port = 3000;
+var port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const Post = require('./models/post.models');
 const bodyParser = require('body-parser');
