@@ -2,13 +2,24 @@ extends ../layout/postComon
 
 block conten
 		div.container-fluid.padding
-			br
-			p#p
-				| THE ULTIMATE THEME TO SELL YOUR BOOK. SINGLE, MULTIPLE, DIGITAL
-				br
-				br
+			div.header
+				h2.logo
+					a(href="http://localhost:3000") 3COLOR
+				input(type="checkbox" id="chk")
+				label.show-meau-btn(for="chk")
+					i.fas.fa-ellipsis-h
+					
+				ul.meau
+					a(href="#") Home
+					a(href="#") About
+					a(href="/post") Post
+					a(href="#") Word
+					a(href="#") Contact
+					label.hide-meau-btn(for="chk")
+						i.fas.fa-times
 			div.row.padding
 				div.col-md-12.col-lg-6
+					h1(style="text-align:center;") danh sach
 					div(class="table2-mobi view")
 						div 
 							div(class="baner-br baner-view") 

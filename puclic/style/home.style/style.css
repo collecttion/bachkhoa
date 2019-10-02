@@ -1,0 +1,191 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: consolas;
+    overflow: hidden;
+}
+input[type="checkbox"]
+{
+    position:fixed ;
+    right: 20px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    z-index: 100000;
+    cursor: pointer;
+}
+.icon{
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    z-index: 100001;
+    background: linear-gradient(to bottom, #343a40 0%, #004185 100%);
+    pointer-events: none;
+}
+.icon:before{
+    content: 'close';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+input[type="checkbox"]:checked ~ .icon:before{
+    content: 'meau';
+}
+ul{
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    width: 300px;
+    height: 100vh;
+    background: linear-gradient(to bottom, #343a40 0%, #004185 100%);
+    transition: 0.5s;
+    z-index: 100000;
+    overflow-y: auto ;
+}
+ul li{
+    display: block;
+}
+ul li a{
+    display: block;
+    color: #EFF8FB;
+    opacity: .6;
+    padding: 10px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+ul li a:hover{
+    transform: translateX(10px);
+    color: #fff;
+    opacity: 1;
+}
+input[type="checkbox"]:checked ~ ul{
+    left: -300px;
+}
+section{
+    position: relative;
+    left: 300px;
+    padding-top: 10%;
+    padding-left: 10%;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+input[type="checkbox"]:checked ~ section{
+    left: 0;
+}
+section h2{
+    margin: 0;
+    padding: 0;
+    font-size: 36px;
+}
+#home{
+    background-image: url('/img/nainai.jpg');
+    opacity: .5;
+    background-size: cover;
+    position: absolute;
+    height: 110%;
+    width: 120%;
+}
+section{
+    height: 100%;
+}
+/*mouse*/
+.middle{
+    position: absolute;
+    transform: translate(-50% -50%);
+    left:50%;
+    top:95%;
+}
+.mouse{
+    width: 29px;
+    height: 56px;
+    border: 2px solid #343a40;
+    border-radius: 60px;
+    opacity: 0.5;
+}
+.mouse::before{
+    content:"" ;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: #004185;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+    animation: mouse 2s infinite;
+}
+@keyframes mouse{
+    from{
+        opacity: 1;
+        top:10px;
+    }
+    to{
+        opacity: 0;
+        top:56px;
+    }
+}
+
+/*img action*/
+
+/*end*/
+.end-game1{
+    width: 114%;
+    background: linear-gradient(to bottom, #343a40 0%, #004185 100%);
+    color: #fff;
+    text-align: center;
+    height: 50%;
+    margin-top: 25%;
+    margin-left: -12%;
+}
+.end-game1 table{
+    text-align: left;
+    padding-top: 3%;
+}
+.end-game1 table{
+    margin-left: 47%;
+
+}
+.end-game1 hr{
+    border-top: 1px solid #aaa;
+}
+
+@media (max-width: 992px){
+    #home{
+        height: 110%;
+        opacity: 1;
+    }
+}
+@media (max-width: 768px){
+    #home{
+        height: 108%;
+    }
+}
+@media (max-width: 576px){
+    #home{
+        height: 104%;
+    }
+    .end-game1{
+        margin-top: 88%;
+    }
+    .end-game1 table {
+        margin-left: 36%;
+    }
+}
