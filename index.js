@@ -11,7 +11,7 @@ require('dotenv').config()
 
 var upload = multer({ dest: 'puclic/uploads/' });
 
-mongoose.connect(process.env.MONGO_URL,{useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect('mongodb://localhost:27017/bachkhoa',{useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 app.set('view engine', 'pug');
 app.set('views', './views');
